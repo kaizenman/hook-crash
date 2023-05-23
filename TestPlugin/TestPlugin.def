@@ -1,0 +1,4 @@
+LIBRARY "TestPlugin.arx"
+EXPORTS
+    acrxEntryPoint      PRIVATE
+    acrxGetApiVersion   PRIVATE
