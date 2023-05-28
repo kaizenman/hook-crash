@@ -3,6 +3,6 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LocalDebuggerAttach>false</LocalDebuggerAttach>
     <DebuggerFlavor>WindowsLocalDebugger</DebuggerFlavor>
-    <LocalDebuggerCommand>C:\Program Files\Autodesk\AutoCAD 2022\acad.exe</LocalDebuggerCommand>
+    <LocalDebuggerCommand>C:\Program Files\Autodesk\AutoCAD 2023\acad.exe</LocalDebuggerCommand>
   </PropertyGroup>
 </Project>

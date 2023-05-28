@@ -7,6 +7,9 @@
 #ifndef PCH_H
 #define PCH_H
 
+// STL
+#include <memory>
+
 // MFC
 #include <afxwin.h>
 #include <afxext.h>
@@ -20,6 +23,17 @@
 #include "rxmfcapi.h"
 #include "acedCmdNF.h"
 #include "adscodes.h"
+#include "AcPlPlotProgress.h"
+#include "acplplotreactor.h"
+#include "acpublishreactors.h"
+#include "acplplotreactormgr.h"
+
+#include "MyDatabaseReactor.h"
+#include "MyDocManagerReactor.h"
+#include "MyEditorReactor.h"
+#include "MyPlotReactor.h"
+#include "MyPublishReactor.h"
+#include "Reactors.h"
 
 #include "resource1.h"
 

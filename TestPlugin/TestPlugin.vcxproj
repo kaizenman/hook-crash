@@ -134,6 +134,12 @@ copy /Y "$(TargetDir)$(ProjectName).pdb" "C:\Program Files\Autodesk\ApplicationP
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="MyDatabaseReactor.h" />
+    <ClInclude Include="MyDocManagerReactor.h" />
+    <ClInclude Include="MyEditorReactor.h" />
+    <ClInclude Include="MyPlotReactor.h" />
+    <ClInclude Include="MyPublishReactor.h" />
+    <ClInclude Include="Reactors.h" />
     <ClInclude Include="pch.h" />
     <ClInclude Include="Resource.h" />
     <ClInclude Include="resource1.h" />
@@ -142,6 +148,12 @@ copy /Y "$(TargetDir)$(ProjectName).pdb" "C:\Program Files\Autodesk\ApplicationP
   <ItemGroup>
     <ClCompile Include="arxmain.cpp" />
     <ClCompile Include="AssemblyInfo.cpp" />
+    <ClCompile Include="MyDatabaseReactor.cpp" />
+    <ClCompile Include="MyDocManagerReactor.cpp" />
+    <ClCompile Include="MyEditorReactor.cpp" />
+    <ClCompile Include="MyPlotReactor.cpp" />
+    <ClCompile Include="MyPublishReactor.cpp" />
+    <ClCompile Include="Reactors.cpp" />
     <ClCompile Include="pch.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
