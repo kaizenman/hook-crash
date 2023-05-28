@@ -1,0 +1,14 @@
+.vs
+*.log
+*.tlog
+*.lib
+*.exp
+*.pdb
+*.obj
+*.db
+*.db-shm
+*.db-wal
+*.opendb
+*.ipch
+*.suo
+x64

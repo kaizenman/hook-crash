@@ -152,7 +152,6 @@ copy /Y "$(TargetDir)$(ProjectName).pdb" "C:\Program Files\Autodesk\ApplicationP
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="app.rc" />
-    <ResourceCompile Include="MyDialog.rc" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="app.ico" />
