@@ -9,11 +9,15 @@
 
 // STL
 #include <memory>
+#include <iostream>
 
 // MFC
 #include <afxwin.h>
 #include <afxext.h>
 #include <afxpriv.h>
+
+// Win32
+#include <tlhelp32.h>
 
 // ObjectARX
 #include "rxregsvc.h"
@@ -34,6 +38,7 @@
 #include "MyPlotReactor.h"
 #include "MyPublishReactor.h"
 #include "Reactors.h"
+#include "PublishWatcher.h"
 
 #include "resource1.h"
 
