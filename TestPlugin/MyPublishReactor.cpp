@@ -20,3 +20,13 @@ void MyPublishReactor::OnEndPublish(AcPublishReactorInfo *pInfo)
     if (pInfo == nullptr)
         return;
 }
+
+void MyPublishReactor::RealOnEndPublish()
+{
+    MessageBox(NULL, L"Publish finished", L"Message Box Title", MB_OK | MB_ICONINFORMATION);
+
+    // test if files exist at this point
+    // if we publish to DWF -> everything is ok
+    // if we publish to PDF -> files are not published yet
+
+}

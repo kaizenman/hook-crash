@@ -12,3 +12,5 @@
 *.ipch
 *.suo
 x64
+*.pdf
+*.dwf
