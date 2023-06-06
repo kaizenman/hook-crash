@@ -12,28 +12,6 @@ static HHOOK g_hHook = NULL;
 #define NewDataShortcut 0x5237
 #define DialogClassName L"#32770"
 
-class MyDialog : public CDialog
-{
-public:
-    MyDialog() : CDialog() {}
-
-    virtual BOOL OnInitDialog() override {
-        CDialog::OnInitDialog();
-
-        // Create a button
-        CButton* myButton = new CButton();
-        myButton->Create(_T("My Button"), WS_CHILD | WS_VISIBLE | BS_PUSHBUTTON,
-            CRect(10, 10, 100, 30), this, 1);
-
-        // Create a static text
-        CStatic* myStatic = new CStatic();
-        myStatic->Create(_T("My Static Text"), WS_CHILD | WS_VISIBLE,
-            CRect(10, 50, 200, 70), this);
-
-        return TRUE;
-    }
-};
-
 /*
 
 This is because hook procedures can be called very frequently and also because they run within the context of the thread that triggered the hook event.
@@ -50,14 +28,11 @@ In general, you need to be very careful when calling any function that might not
 
 void ShowDialog()
 {
-    //AFX_MANAGE_STATE(AfxGetStaticModuleState())
-   /* MessageBox(NULL,
+   MessageBox(NULL,
         L"This is a message",
         L"Message Box Title",
         MB_OK | MB_ICONINFORMATION);
-        */
-    MyDialog dlg;
-    dlg.DoModal();
+    
 }
 
 LRESULT __stdcall HookProc(int nCode, WPARAM wParam, LPARAM lParam)
@@ -88,10 +63,7 @@ LRESULT __stdcall TreeWndProc(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam
 {
     int wID = LOWORD(wParam);
 
-    if (uMsg == WM_GETTEXT) {
-        std::cout << "here\n";
-    }
-    else if (uMsg == WM_COMMAND && wID == NewDataShortcut) {
+    if (uMsg == WM_COMMAND && wID == NewDataShortcut) {
         g_hHook = SetWindowsHookEx(WH_CBT, HookProc, NULL, GetCurrentThreadId());
     }
 
@@ -160,11 +132,7 @@ void FindTreeWindow()
 
 void Test()
 {
-    MessageBox(NULL,
-        L"This is a message",
-        L"Message Box Title",
-        MB_OK | MB_ICONINFORMATION);
-    // FindTreeWindow();
+    FindTreeWindow();
 }
 
 extern "C" AcRx::AppRetCode
