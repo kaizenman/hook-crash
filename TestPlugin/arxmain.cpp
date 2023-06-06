@@ -60,15 +60,27 @@ LRESULT __stdcall TreeWndProc(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam
             mode = PublishWatcher::PublishMode::PDF;        
 
         PublishWatcher::SetPublishMode(mode);
-
+        MyBeginPublish(mode);
+        /*
         if (wID == Publish_DWF)
         {
             MyBeginPublish(mode);
         }
         else if (wID == Publish_PDF)
         {
+            hWinEventHook = SetWinEventHook(
+                EVENT_MIN, EVENT_MAX,
+                NULL,
+                WinEventProc,
+                GetCurrentProcessId(), 0,
+                WINEVENT_OUTOFCONTEXT
+            );
 
+            if (!hWinEventHook) {
+                acutPrintf(_T("\nFailed to set windows event hook."));
+            }
         }
+        */
         LRESULT result = 0;
         result = CallWindowProc(g_treeWndProc, hWnd, uMsg, wParam, lParam);
 
@@ -92,17 +104,6 @@ void Test()
     FindMyWindow();
 
     // publish to pdf is started after the dialog is closed
-    hWinEventHook = SetWinEventHook(
-        EVENT_MIN, EVENT_MAX,
-        NULL,
-        WinEventProc,
-        GetCurrentProcessId(), 0,
-        WINEVENT_OUTOFCONTEXT
-    );
-
-    if (!hWinEventHook) {
-        acutPrintf(_T("\nFailed to set windows event hook."));
-    }
 
 }
 
@@ -142,8 +143,8 @@ LRESULT CALLBACK SubclassProc(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam
             }
 
             // Unhook the event hook
-            // UnhookWinEvent(hWinEventHook);
-            // hWinEventHook = NULL;
+            UnhookWinEvent(hWinEventHook);
+            hWinEventHook = NULL;
 
             // Clear hDialog when the dialog is destroyed
             hDialog = NULL;

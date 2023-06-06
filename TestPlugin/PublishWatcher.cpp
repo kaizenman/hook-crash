@@ -116,11 +116,12 @@ void __stdcall PublishWatcher::TimerProc(HWND hWnd, UINT nMsg, UINT_PTR nIDEvent
             return;
         }
 
-        ++attempt;
-
         procId = Detail::FindChildProc(GetCurrentProcessId(), processName);
         if (-1 == procId)
             return;
+
+        ++attempt;
+
 
         if (publishMode == PublishMode::PDF)
         {
